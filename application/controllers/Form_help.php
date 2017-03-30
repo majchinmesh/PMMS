@@ -97,11 +97,15 @@ class Form_help extends CI_Controller {
 					if(!$result){
 						
 						$data['error_message'] = "Problem inserting the marks ...";
+						$this->load->view('template/header');
+						$this->load->view('template/navigation');
 						$this->load->view('home_page', $data);	
 					}
 					else{
 						
 						$data['display_message'] = "Inserted student ".$s_id." marks successfully ...";
+						$this->load->view('template/header');
+						$this->load->view('template/navigation');
 						$this->load->view('home_page', $data);	
 					}	
 				}		
@@ -117,33 +121,37 @@ class Form_help extends CI_Controller {
 		public function new_faculty_insert() {
 			
 		// Check validation for user input in SignUp form
-		$this->form_validation->set_rules('title', 'Title', 'trim|required|xss_clean');
-		$this->form_validation->set_rules('picture_url', 'Picture', 'trim|required|xss_clean');
-		$this->form_validation->set_rules('ingredients', 'Ingredients', 'trim|required|xss_clean');
-		$this->form_validation->set_rules('price', 'Price', 'trim|required|xss_clean');	
-		$this->form_validation->set_rules('veg', 'Veg', 'trim|required|xss_clean');
+		$this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
+		$this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
+		$this->form_validation->set_rules('name', 'Name', 'trim|required|xss_clean');
+		$this->form_validation->set_rules('email', 'Email', 'trim|required|xss_clean');	
+		
 		
 		if ($this->form_validation->run() == FALSE) {
-			 $this->load->view('admin');
+			$data["error_message"]= "There was some mistake in the values filled";
+			 $this->load->view('admin_faculty_insert',$data);
 		} else {
 			$data = array(
-			'title' => $this->input->post('title'),
-			'photo_link' => $this->input->post('picture_url'),
-			'ingredients' => $this->input->post('ingredients'),
-			'price' => $this->input->post('price'),
-			'veg' => $this->input->post('veg')
-			
+			'f_user_name' => $this->input->post('username'),
+			'f_password' => $this->input->post('password'),
+			'f_name' => $this->input->post('name'),
+			'f_email' => $this->input->post('email'),
+			'admin' => 0
 			);
 			
-			$result = $this->food_database->food_insert($data);
+			$result = $this->marks_database->faculty_insert($data);
 		
 			if ($result == TRUE) {
-				$data['message_display'] = 'Food Added Successfully !';
-				$this->load->view('admin_page', $data);
+				$data['message_display'] = 'Faculty Added Successfully !';
+				$this->load->view('template/header');
+				$this->load->view('template/navigation');
+				$this->load->view('admin_faculty_insert', $data);
 				//header("location: ../admin");
 			} else {
-				$data['message_display'] = 'Food already exist!';
-				$this->load->view('admin_page', $data);
+				$data['message_display'] = 'Faculty with that username '. $data['f_user_name'] .' already exist!';
+				$this->load->view('template/header');
+				$this->load->view('template/navigation');
+				$this->load->view('admin_faculty_insert', $data);
 			}
 		}
 			
@@ -152,39 +160,84 @@ class Form_help extends CI_Controller {
 
 
 
+	private function array_has_dupes($array) {
+   		return count($array) !== count(array_unique($array));
+	}
 
 
-
-	/*
-	// Validate and store registration data in database
-	public function new_user_registration() {
-		
+	public function new_student_insert() {
+			
+			//$valid = validate_faculties();
+			$f_array = Array (
+				$this->input->post('Supervisor'),
+				$this->input->post('Exeminar_1'),
+				$this->input->post('Exeminar_2'),
+				$this->input->post('Exeminar_3')
+			);
+			 
+			if( $this->array_has_dupes($f_array) ){
+				
+				$data["error_message"]= "No multiple faculties for same student." ;
+				$this->load->view('template/header');
+				$this->load->view('template/navigation');
+				$this->load->view('admin_student_insert',$data);
+				
+			}
+			
+			//print_r( $this->input->post('supervisor') );
+			
+			//return ;
+			
 		// Check validation for user input in SignUp form
-		$this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
-		$this->form_validation->set_rules('email_value', 'Email', 'trim|required|xss_clean');
-		$this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
+		$this->form_validation->set_rules('name', 'Name', 'trim|required|xss_clean');
+		$this->form_validation->set_rules('email', 'Email', 'trim|required|xss_clean');	
+		$this->form_validation->set_rules('roll', 'Roll', 'trim|required|xss_clean');	
+		
 		
 		if ($this->form_validation->run() == FALSE) {
-			$this->load->view('registration_form');
+			 $data["error_message"]= "There was some mistake in the values filled";
+			 $this->load->view('template/header');
+			 $this->load->view('template/navigation');
+			 $this->load->view('admin_student_insert',$data);
 		} else {
 			$data = array(
-			'user_name' => $this->input->post('username'),
-			'user_email' => $this->input->post('email_value'),
-			'user_password' => $this->input->post('password')
+			's_name' => $this->input->post('name'),
+			's_roll' => $this->input->post('roll'),
+			's_email' => $this->input->post('email'),
+			's_sup_id'=> $this->input->post('supervisor'),
+			's_ex1_id' => $this->input->post('exeminar_1'),
+			's_ex2_id' => $this->input->post('exeminar_2'),
+			's_ex3_id' => $this->input->post('exeminar_3')
 			);
 			
-			$result = $this->login_database->registration_insert($data);
+			$result = $this->marks_database->student_insert($data);
 		
 			if ($result == TRUE) {
-				$data['message_display'] = 'Registration Successfully !';
-				$this->load->view('login_form', $data);
+				$data['message_display'] = 'Student Added Successfully !';
+				$this->load->view('template/header');
+				$this->load->view('template/navigation');
+				$this->load->view('admin_student_insert', $data);
+				//header("location: ../admin");
 			} else {
-				$data['message_display'] = 'Username already exist!';
-				$this->load->view('registration_form', $data);
+				$data['error_message'] = 'Student '. $data['s_name'] .' Already present in the database.';
+				$this->load->view('template/header');
+				$this->load->view('template/navigation');
+				$this->load->view('admin_student_insert', $data);
 			}
 		}
+			
 	}
-	*/
+
+
+
+
+
+
+
+
+
+
+
 
 	public function user_login_process() {
 
@@ -248,6 +301,8 @@ class Form_help extends CI_Controller {
 
 				$data['session_ua'] = $this->session ;
 				print_r($this->session->userdata);
+				$this->load->view('template/header');
+				$this->load->view('template/navigation');
 				$this->load->view('login_page.php', $data); // admin_page initially 
 			}
 		}

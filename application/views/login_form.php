@@ -51,7 +51,7 @@
 				<input type="password" name="password" id="password" placeholder="**********"/><br/><br />
 				<input type="submit" value=" Login " name="submit"/><br />
 				
-				<a href="http://<?php echo $_SERVER['SERVER_NAME'] ?>/order_it/register">To SignUp Click Here</a>
+				
 				<?php echo form_close(); ?>
 			</div><!-- div end login -->
 		</div><!-- div end main -->

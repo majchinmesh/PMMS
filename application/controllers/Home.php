@@ -22,6 +22,7 @@ class Home extends CI_Controller {
 				$faculty_id =  $data['logged_in']['user_id'];
 	
 				$result = $this->marks_database->get_students_to_grade($faculty_id);
+				$all_s_data = $this->marks_database->get_only_students_data();
 				
 				//print_r($result);
 				//return;
@@ -36,6 +37,8 @@ class Home extends CI_Controller {
 					$data['students'] = FALSE ;
 					
 				}	
+			
+				$data['s_data'] = $all_s_data;
 	
 				$this->load->view('template/header');
 				$this->load->view('template/navigation');

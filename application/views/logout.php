@@ -10,7 +10,7 @@
 	<body>
 		
 		<h1> You Have successfully logged out... </h1>	
-		<h3><a href="/order_it/login" ><h3> Click Here</a> To login.</h3>
+		<h3><a href="/PMMS/login" ><h3> Click Here</a> To login.</h3>
 		
 	</body>
 	

@@ -19,9 +19,13 @@ class Admin extends CI_Controller {
 				
 				if( $data['logged_in']['admin'] == 1 ){
 					
-					$all_data =  $this->marks_database->get_all_students_data();
+					$all_s_data =  $this->marks_database->get_all_students_data();
 					//result = $this->marks_database->get_students_to_grade($faculty_id);
-					$data['all_student_data'] = $all_data ;
+					$data['all_student_data'] = $all_s_data ;
+					
+					$all_f_data = $this->marks_database->get_all_faculty_data();
+					$data['all_faculty_data'] = $all_f_data ;
+					
 					
 					$this->load->view('template/header');
 					$this->load->view('template/navigation');
@@ -47,9 +51,27 @@ class Admin extends CI_Controller {
 	public function faculty_insert(){
 		
 		
+		$this->load->view('template/header');
+		$this->load->view('template/navigation');
+		$this->load->view('admin_faculty_insert.php');
 		
 		
 	}
+	
+	public function student_insert(){
+		
+		$all_faculty = $this->marks_database->get_all_faculty_data();
+		
+		$data['faculty_list'] = $all_faculty ;
+		
+		$this->load->view('template/header');
+		$this->load->view('template/navigation');
+		$this->load->view('admin_student_insert.php',$data);
+		
+		
+	}
+	
+	
 	
 	
 }

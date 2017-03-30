@@ -12,14 +12,22 @@
           
           <a class="navbar-brand" href="<?php echo base_url()."home" ; ?>">Home</a>
           <!--<a class="navbar-brand" href="<?php echo base_url()."orders" ; ?>">Orders</a> -->
-          <a class="navbar-brand" href="<?php echo base_url()."admin" ; ?>">Admin</a>
+         
           
           <?php 
           
           	$data = $this->session->userdata ; 
 			
           	if( isset($data['logged_in'] )){
-          
+          		
+				if ($data['logged_in']['admin'] == 1 ){
+					
+					?>
+						 <a class="navbar-brand" href="<?php echo base_url()."admin" ; ?>">Admin</a>			
+					<?php
+					
+				}
+				
           ?>  
           			<a class="navbar-brand" href="<?php echo base_url()."logout" ; ?>">Logout</a>
         	<?php }
