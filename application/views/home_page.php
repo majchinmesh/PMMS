@@ -1,6 +1,6 @@
 <?php
 
-if( !isset($display_message)){
+if( !isset($display_message) and !isset($error_message)){
 
 ?>				
 <div class="row">

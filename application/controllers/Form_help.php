@@ -80,7 +80,17 @@ class Form_help extends CI_Controller {
 				
 				$valid = $this->velidate($marks,$is_sup);
 				
-				if ( $marked != 1 and $valid ){
+				if (!$valid and $marked != 1 ) {
+					
+						$data['error_message'] = "Marks not valid ...";
+						$this->load->view('template/header');
+						$this->load->view('template/navigation');
+						$this->load->view('home_page', $data);
+					
+						return ;
+				}
+				
+				if ( $marked != 1  ){
 				
 				
 					$data = array(
@@ -108,6 +118,15 @@ class Form_help extends CI_Controller {
 						$this->load->view('template/navigation');
 						$this->load->view('home_page', $data);	
 					}	
+				}
+				
+				else{
+					
+						$data['error_message'] = "Already marked ...";
+						$this->load->view('template/header');
+						$this->load->view('template/navigation');
+						$this->load->view('home_page', $data);
+					
 				}		
 				
 				
@@ -175,6 +194,8 @@ class Form_help extends CI_Controller {
 				$this->input->post('Exeminar_3')
 			);
 			 
+			 //print_r($f_array);	
+			 //return ; 
 			if( $this->array_has_dupes($f_array) ){
 				
 				$data["error_message"]= "No multiple faculties for same student." ;
@@ -204,10 +225,10 @@ class Form_help extends CI_Controller {
 			's_name' => $this->input->post('name'),
 			's_roll' => $this->input->post('roll'),
 			's_email' => $this->input->post('email'),
-			's_sup_id'=> $this->input->post('supervisor'),
-			's_ex1_id' => $this->input->post('exeminar_1'),
-			's_ex2_id' => $this->input->post('exeminar_2'),
-			's_ex3_id' => $this->input->post('exeminar_3')
+			's_sup_id'=> $this->input->post('Supervisor'),
+			's_ex1_id' => $this->input->post('Exeminar_1'),
+			's_ex2_id' => $this->input->post('Exeminar_2'),
+			's_ex3_id' => $this->input->post('Exeminar_3')
 			);
 			
 			$result = $this->marks_database->student_insert($data);
