@@ -1,19 +1,14 @@
 	<nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-         
+        <div class="navbar-header">    
          <!--  -->
           
-          <a class="navbar-brand" href="<?php echo base_url()."home" ; ?>">Home</a>
+          <a class="navbar-brand" href="<?php echo base_url()."home" ; ?>">PMMS</a>
           <!--<a class="navbar-brand" href="<?php echo base_url()."orders" ; ?>">Orders</a> -->
          
-          
+        </div> 
+        <ul class="nav navbar-nav">    
+        	<li class = "Active"><a class="navbar-brand" href="<?php echo base_url()."home" ; ?>">Home</a></li>
           <?php 
           
           	$data = $this->session->userdata ; 
@@ -23,18 +18,35 @@
 				if ($data['logged_in']['admin'] == 1 ){
 					
 					?>
-						 <a class="navbar-brand" href="<?php echo base_url()."admin" ; ?>">Admin</a>			
+						<li class="dropdown">
+					        <a class="dropdown-toggle navbar-brand" data-toggle="dropdown" href="#">Admin
+					        <span class="caret"></span></a>
+					        <ul class="dropdown-menu  bg_black">
+					          <li><a class="navbar-brand" href="<?php echo base_url()."admin" ; ?>">All Marks</a></li>
+					          <li><a class="navbar-brand" href="<?php echo base_url()."admin/faculty_insert"; ?>">Add Faculty</a></li>
+					          <li><a class="navbar-brand" href="<?php echo base_url()."admin/student_insert" ; ?>">Add Student</a></li>
+        					  <li><a class="navbar-brand" href="<?php echo base_url()."admin/marks_reset" ; ?>">Reset Marks</a></li> 
+        					  <li><a class="navbar-brand" href="<?php echo base_url()."admin/student_delete" ; ?>">Remove Student</a></li>
+        					  <li><a class="navbar-brand" href="<?php echo base_url()."admin/faculty_delete" ; ?>">Remove Faculty</a></li>   	
+        					</ul>
+      					</li>
+		</ul>				 			
+						 
 					<?php
 					
 				}
 				
           ?>  
-          			<a class="navbar-brand" href="<?php echo base_url()."logout" ; ?>">Logout</a>
+          			<!--<ul class="nav navbar-nav navbar-right">-->
+          				<li class="navbar-right"><a class="navbar-brand" href="<?php echo base_url()."logout" ; ?>">Logout</a></li>
+        			
         	<?php }
         	
 			else { 
-        
-        	?>		<a class="navbar-brand" href="<?php echo base_url()."login" ; ?>">Login</a>
+        		
+        	?>		<!--<ul class="nav navbar-nav navbar-right">-->
+        				<li class="navbar-right"><a class="navbar-brand" href="<?php echo base_url()."login" ; ?>">Login</a></li>
+        			
         			<!--<a class="navbar-brand" href="<?php echo base_url()."register" ; ?>">Register</a>-->
         
         	<?php
@@ -42,7 +54,6 @@
 			}
         	?>
         
-        </div>
         <!--
         <div id="navbar" class="navbar-collapse collapse">
           	<a class="navbar-brand navbar-right " href="<?php echo base_url(); ?>">Order - it</a>

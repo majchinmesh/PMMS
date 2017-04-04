@@ -370,6 +370,67 @@ Class Marks_Database extends CI_Model {
 
 
 
+    public function get_all_marks(){
+    	
+		$new_data = Array();
+		
+		
+		$all_students = $this->get_only_students_data();
+		
+		if( $all_students == False ) {
+			
+			return False ;
+			
+		}
+		
+		
+		$all_faculty = $this->get_all_faculty_data();
+		
+		if( $all_faculty == False ) {
+			
+			return False ;
+			
+		}
+		
+		
+		$this->db->select('*');
+		$this->db->from('marks');
+		$query = $this->db->get();
+		
+		
+		if ($query->num_rows() > 0 ) {
+		
+			$all_marks =  $query->result();
+			
+			$data = Array();
+			
+			foreach( $all_marks as $mark ) {
+					
+				if( $mark->m_marked == 1 ){
+					
+					$m_id = $mark->m_id ;
+					$m_s_id = $mark->m_s_id ;
+					$m_f_id = $mark->m_f_id ;
+					$m_is_sup = $mark->m_is_sup ;
+					$m_marks = $mark->m_marks ;
+					
+					$data[$m_id] = Array (
+						
+						'student'=> $all_students[$m_s_id]['name'], 
+						'faculty'=> $all_faculty[$m_f_id] ,
+						'is_sup' => $m_is_sup ,
+						'marks' => $m_marks 
+					);
+				}
+			}
+		
+		} else {
+			
+			return false;
+		}
+	
+		return $data ;
+    }
 
 }
 

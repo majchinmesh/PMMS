@@ -1,8 +1,10 @@
 Marks_id,Roll,"Student Name",Supervisor,M1,"Examiner 1",M2,"Examiner 2",M3,"Examiner 3",M4,MT
-1,14CSE1001,P,A,50,D,40,C,20,B,35,82
-2,14CSE1002,Q,B,59,D,40,C,30,A,20,89
-3,14CSE1003,R,C,35,D,40,B,21,A,35,67
-4,14CSE1004,S,D,60,C,27,B,38,A,38,95
-5,14CSE1005,T,A,50,B,29,C,31,D,40,84
-6,14CSE1006,U,"Chinmesh Manjrekar",34,B,32,C,14,D,40,63
-7,14CSE1007,V,C,0,D,0,A,34,"Chinmesh Manjrekar",36
+1,14CSE1001,"Amit Kumar","Dr. Damodar Reddy Edla",0,"Dr. Purushothama B R",0,"Dr. Veena Thenkanidiyoor",0,"Dr. S. Mini",0
+2,14CSE1002,"Annette Catherine Paul","Dr. Purushothama B R",0,"Dr. Veena Thenkanidiyoor",0,"Dr. S. Mini",0,"Dr. Pravati Swain",0
+3,14CSE1003,"Bikumalla Prudhvi Raj","Dr. Veena Thenkanidiyoor",0,"Dr. S. Mini",0,"Dr. Pravati Swain",0,"Dr. Venkatanareshbabu Kuppili",0
+4,14CSE1004,"Colaco Larren Francis","Dr. S. Mini",0,"Dr. Pravati Swain",0,"Dr. Venkatanareshbabu Kuppili",0,"Dr. Modi Chirag Navinchandra",0
+5,14CSE1005,"Dhavalikar Gauri Pandurang","Dr. Pravati Swain",0,"Dr. Venkatanareshbabu Kuppili",0,"Dr. Modi Chirag Navinchandra",0,"Dr. Keshavamurthy B.N.",0
+6,14CSE1006,"Gorle Hemavathi","Dr. Venkatanareshbabu Kuppili",0,"Dr. Modi Chirag Navinchandra",0,"Dr. Keshavamurthy B.N.",0,"Mrs. Aruna Govada",0
+7,14CSE1007,"Himanshu Singh","Dr. Modi Chirag Navinchandra",0,"Dr. Keshavamurthy B.N.",0,"Mrs. Aruna Govada",0,"Dr. Damodar Reddy Edla",0
+8,14CSE1008,"Kamisetty Yamini Preethi","Dr. Keshavamurthy B.N.",0,"Mrs. Aruna Govada",0,"Dr. Damodar Reddy Edla",0,"Dr. Purushothama B R",0
+9,14CSE1009,"Kareti Vineeth Sai","Mrs. Aruna Govada",0,"Dr. Damodar Reddy Edla",0,"Dr. Purushothama B R",0,"Dr. Veena Thenkanidiyoor",0

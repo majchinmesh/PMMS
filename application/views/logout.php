@@ -9,8 +9,8 @@
 
 	<body>
 		
-		<h1> You Have successfully logged out... </h1>	
-		<h3><a href="/PMMS/login" ><h3> Click Here</a> To login.</h3>
+		<h2> You Have successfully logged out... </h2>	
+		<h2><a href="/PMMS/login" ><h3> Click Here</a> To login.</h2>
 		
 	</body>
 	

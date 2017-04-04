@@ -3,11 +3,12 @@
 	if(isset($error_message)){
 		
 		
-		echo $error_message ;
+	
+		echo '<h2>'.$error_message.'</h2>';
 	}
 	else if (isset($message_display)){
 		
-		echo $message_display ;
+		echo '<h2>'.$message_display.'</h2>' ;
 	}
 	
 	else{

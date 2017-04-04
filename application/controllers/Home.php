@@ -34,7 +34,7 @@ class Home extends CI_Controller {
 						
 				}else{
 					
-					$data['students'] = FALSE ;
+					$data['error_message'] = "No students in the database yet!" ;
 					
 				}	
 			

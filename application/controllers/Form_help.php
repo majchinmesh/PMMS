@@ -135,9 +135,7 @@ class Form_help extends CI_Controller {
 	}
 
 
-
-
-		public function new_faculty_insert() {
+	public function new_faculty_insert() {
 			
 		// Check validation for user input in SignUp form
 		$this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
@@ -175,8 +173,6 @@ class Form_help extends CI_Controller {
 		}
 			
 	}
-
-
 
 
 	private function array_has_dupes($array) {
@@ -250,16 +246,6 @@ class Form_help extends CI_Controller {
 	}
 
 
-
-
-
-
-
-
-
-
-
-
 	public function user_login_process() {
 
 		$this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
@@ -329,4 +315,178 @@ class Form_help extends CI_Controller {
 		}
 	}
 
+	public function marks_reset(){
+			$data = $this->input->post('marks_id');
+				
+			if(sizeof($data)  > 0 ){
+				
+				foreach ( $data as $id => $m_id ) {
+			
+				$this->db->set('m_marked',0);
+				$this->db->where('m_id', $m_id);
+				$this->db->update('marks');
+				
+				$this->db->set('m_marks',0);
+				$this->db->where('m_id', $m_id);
+				$this->db->update('marks');
+			
+				}
+			
+			
+				$data_['message_display'] = 'Marks reset Successfully !';
+				$this->load->view('template/header');
+				$this->load->view('template/navigation');
+				$this->load->view('admin_marks_reset', $data_);		
+				
+			}
+			else{
+				$data_['error_message'] = 'No marks were selected.';
+				$this->load->view('template/header');
+				$this->load->view('template/navigation');
+				$this->load->view('admin_marks_reset', $data_);		
+			}
+			
+			
+		
+	}
+
+
+
+	public function student_delete(){
+			$data = $this->input->post('student_id');
+				
+			if(sizeof($data)  > 0 ){
+				
+				foreach ( $data as $id => $s_id ) {
+		
+					$this->db->where('m_s_id', $s_id);
+					$this->db->delete('marks');
+					
+					if($this->db->affected_rows() > 0 ){
+						
+						$this->db->where('s_id', $s_id);
+						$this->db->delete('students');	
+						
+					}
+					else{
+						$data_['error_message'] = "Marks couldn't be deleted";
+						$this->load->view('template/header');
+						$this->load->view('template/navigation');
+						$this->load->view('admin_student_delete', $data_);		
+						
+					}
+				
+				}
+				
+				$data_['message_display'] = 'Students Deleted Successfully !';
+				$this->load->view('template/header');
+				$this->load->view('template/navigation');
+				$this->load->view('admin_student_delete', $data_);		
+				
+			}
+			else{
+				$data_['error_message'] = 'No students were selected.';
+				$this->load->view('template/header');
+				$this->load->view('template/navigation');
+				$this->load->view('admin_student_delete', $data_);		
+			}
+			
+	}
+
+
+	public function faculty_delete(){
+			$data = $this->input->post('faculty_id');
+		    if(sizeof($data)  > 0 ){
+				foreach ( $data as $id => $f_id ) {
+					$this->db->select("m_s_id");
+					$this->db->where('m_f_id',$f_id);
+					$this->db->from('marks');
+					$query = $this->db->get();
+					if($query->num_rows() > 0){
+						$data_['error_message'] = 'Faculty assigned to some student! Please reasigne and then try again.';
+						$this->load->view('template/header');
+						$this->load->view('template/navigation');
+						$this->load->view('admin_faculty_delete', $data_);	
+						return;
+					}else{ // this means the faculty was not assigned to any 1 , therefore direclty delete 
+						
+						
+						$this->db->where('f_id', $f_id);
+						$this->db->delete('faculty');
+						
+					}
+				}
+				
+				$data_['message_display'] = 'Faculty Deleted Successfully !';
+				$this->load->view('template/header');
+				$this->load->view('template/navigation');
+				$this->load->view('admin_faculty_delete', $data_);		
+				
+			}
+			else{
+				$data_['error_message'] = 'No faculty were selected.';
+				$this->load->view('template/header');
+				$this->load->view('template/navigation');
+				$this->load->view('admin_faculty_delete', $data_);		
+			}
+			
+	}
+	
+
+	public function faculty_delete_forcefully(){
+			$data = $this->input->post('faculty_id');
+		    if(sizeof($data)  > 0 ){
+				foreach ( $data as $id => $f_id ) {
+					$this->db->select("m_s_id");
+					$this->db->where('m_f_id',$f_id);
+					$this->db->from('marks');
+					$query = $this->db->get();
+					if($query->num_rows() > 0){
+						$all_student_ids =  $query->result();
+						//print_r($all_student_ids);
+						//return;
+						foreach( $all_student_ids as $student ) {
+							$s_id =  $student->m_s_id ;
+							$this->db->where('m_s_id', $s_id);
+							$this->db->delete('marks');		
+								if($this->db->affected_rows() > 0 ){
+									$this->db->where('s_id', $s_id);
+									$this->db->delete('students');	
+								}
+								else{
+									$data_['error_message'] = "Marks couldn't be deleted";
+									$this->load->view('template/header');
+									$this->load->view('template/navigation');
+									$this->load->view('admin_faculty_delete', $data_);			
+								}	
+						}
+						$this->db->where('f_id', $f_id);
+						$this->db->delete('faculty');
+					}else{ // this means the faculty was not assigned to any 1 , therefore direclty delete 
+						
+						
+						$this->db->where('f_id', $f_id);
+						$this->db->delete('faculty');
+						
+					}
+				}
+				
+				$data_['message_display'] = 'Faculty Deleted Successfully !';
+				$this->load->view('template/header');
+				$this->load->view('template/navigation');
+				$this->load->view('admin_faculty_delete', $data_);		
+				
+			}
+			else{
+				$data_['error_message'] = 'No faculty were selected.';
+				$this->load->view('template/header');
+				$this->load->view('template/navigation');
+				$this->load->view('admin_faculty_delete', $data_);		
+			}
+			
+	}
+
+
+
+// end
 }

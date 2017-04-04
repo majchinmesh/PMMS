@@ -8,6 +8,25 @@ span{
 color:red;
 }
 
+.bg_black {
+	
+	background:#2F2F2F ;
+	
+}
+
+
+
+.sup_hilight {
+
+	background:#2CC36B ;
+	
+}
+
+
+.navbar-brand {
+  padding-left:60px;
+  padding-right:60px;
+}
 
 .a_center{
 	

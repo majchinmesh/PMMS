@@ -1,20 +1,3 @@
-<div class="row">
-  <div class="col-md-1"><h4></h4></div>
-  <div class="col-md-1"><h4>Roll</h4></div>
-  <div class="col-md-1"><h4>Student</h4></div>
-  <div class="col-md-1"><h4>Supervisor</h4></div>
-  <div class="col-md-1"><h4>Marks</h4></div>
-  <div class="col-md-1"><h4>Examiner</h4></div>
-  <div class="col-md-1"><h4>Marks</h4></div>
-  <div class="col-md-1"><h4>Examiner</h4></div>
-  <div class="col-md-1"><h4>Marks</h4></div>
-  <div class="col-md-1"><h4>Examiner</h4></div>
-  <div class="col-md-1"><h4>Marks</h4></div>
-  <div class="col-md-1"><h4>Total</h4></div>
-</div>
-
-<br />
-<br />
 
 <?php
 
@@ -42,29 +25,44 @@ $REQUIRED_DATA = array (
 $counter = 0 ;
 
 if(isset($all_student_data) and isset($all_faculty_data) ){
+	if($all_student_data and $all_faculty_data ){
+			
+	?>
+	
+	
+	<div class="row">
+	  <div class="col-md-1"><h4></h4></div>
+	  <div class="col-md-1"><h4>Roll</h4></div>
+	  <div class="col-md-1"><h4>Student</h4></div>
+	  <div class="col-md-1"><h4>Supervisor</h4></div>
+	  <div class="col-md-1"><h4>Marks</h4></div>
+	  <div class="col-md-1"><h4>Examiner</h4></div>
+	  <div class="col-md-1"><h4>Marks</h4></div>
+	  <div class="col-md-1"><h4>Examiner</h4></div>
+	  <div class="col-md-1"><h4>Marks</h4></div>
+	  <div class="col-md-1"><h4>Examiner</h4></div>
+	  <div class="col-md-1"><h4>Marks</h4></div>
+	  <div class="col-md-1"><h4>Total</h4></div>
+	</div>
+	
+	<br />
+	<br />
+	
+	
+	
+	<?php
 	
 	foreach($all_student_data as $s_id => $s_data ){
 		$counter += 1 ;
-		
 		$ROW_DATA = Array();
-		
-		////
 		array_push($ROW_DATA,$counter );
-			
-		
-		
 		$s_name = $s_data['name'] ;
 		$s_roll = $s_data['roll'] ;
 		$marks = $s_data['marks'] ;
-		
-		
-		/////
 		array_push($ROW_DATA,$s_roll,$s_name );
-		
 		$all_marked = are_all_marked($marks);
 		$sup_marks = 0;
 		$exm_marks = 0;
-	
 		?>
 		<div class="row <?php if($all_marked) echo 'row_marked'; else echo 'row_unmarked' ; ?>" >
 			
@@ -150,6 +148,8 @@ if(isset($all_student_data) and isset($all_faculty_data) ){
 		
 		array_push($REQUIRED_DATA,$ROW_DATA);
 		
+		}
+		
 	}
 
 	$fp = fopen('file.csv', 'w');
@@ -158,38 +158,16 @@ if(isset($all_student_data) and isset($all_faculty_data) ){
     	fputcsv($fp, $fields);
 	}
 	
-	?>
 	
-	<div class="row">
-	  <div class="col-md-3"></div>
-	  <div class="col-md-2">
-	  	
-	  	<a href="admin/faculty_insert" >
-	  		<button class="btn-primary btn_link" type="button">Add Faculty</button>
-	  	</a>
-	  	
-	  </div>
-	  <div class="col-md-2"></div>
-	  <div class="col-md-2">
-	  	
-	  	<a href="admin/student_insert"> 
-	  		<button class="btn-primary btn_link" type="button">Add Student</button>
-	  	</a>
-	  	
-	  </div>
-	  <div class="col-md-3"></div>
-	</div>
+}
+else if ( isset($error_message)){
 	
-	
-	<?php
-
-	
-	
+	echo "<h2>".$error_message."</h2>";
 	
 }
 else{
 	
-	echo "Some problem!";
+	echo "<h2>Some Problem</h2>";
 	
 }
 
