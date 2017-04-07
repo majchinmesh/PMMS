@@ -36,11 +36,11 @@ if(isset($all_student_data) and isset($all_faculty_data) ){
 	  <div class="col-md-1"><h4>Student</h4></div>
 	  <div class="col-md-1"><h4>Supervisor</h4></div>
 	  <div class="col-md-1"><h4>Marks</h4></div>
-	  <div class="col-md-1"><h4>Examiner</h4></div>
+	  <div class="col-md-1"><h4>Examiner 1</h4></div>
 	  <div class="col-md-1"><h4>Marks</h4></div>
-	  <div class="col-md-1"><h4>Examiner</h4></div>
+	  <div class="col-md-1"><h4>Examiner 2</h4></div>
 	  <div class="col-md-1"><h4>Marks</h4></div>
-	  <div class="col-md-1"><h4>Examiner</h4></div>
+	  <div class="col-md-1"><h4>Examiner 3</h4></div>
 	  <div class="col-md-1"><h4>Marks</h4></div>
 	  <div class="col-md-1"><h4>Total</h4></div>
 	</div>
@@ -80,6 +80,7 @@ if(isset($all_student_data) and isset($all_faculty_data) ){
 			
 			$mark = $f_data['marks'];
 			$is_sup = $f_data['is_sup'];
+			$marked = $f_data['marked'];
 
 			if ($is_sup == 1) {			
 				$sup_marks += intval($mark) ;
@@ -90,7 +91,7 @@ if(isset($all_student_data) and isset($all_faculty_data) ){
 				
 							
 				<div class="col-md-1"><?php echo'<h5>'.$all_faculty_data[$f_id].'</h5>'?></div>
-				<div class="col-md-1"><?php echo'<h5>'.$mark.'</h5>'?></div>
+				<div class="col-md-1"><?php if ($marked == 1 )  echo'<h5>'.$mark.'</h5>' ; else echo'<h5>-</h5>' ; ?></div>
 				<?php
 			}
 		
@@ -100,7 +101,8 @@ if(isset($all_student_data) and isset($all_faculty_data) ){
 			
 			$mark = $f_data['marks'];
 			$is_sup = $f_data['is_sup'];
-
+			$marked = $f_data['marked'];
+	
 			if ($is_sup == 0 ) {			
 				$exm_marks += intval($mark) ;
 				
@@ -109,7 +111,7 @@ if(isset($all_student_data) and isset($all_faculty_data) ){
 				?>
 				
 				<div class="col-md-1"><?php echo'<h5>'.$all_faculty_data[$f_id].'</h5>'?></div>
-				<div class="col-md-1"><?php echo'<h5>'.$mark.'</h5>'?></div>
+				<div class="col-md-1"><?php if ($marked == 1 )  echo'<h5>'.$mark.'</h5>' ; else echo'<h5>-</h5>' ; ?></div>
 				<?php
 			}
 		

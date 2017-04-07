@@ -17,7 +17,6 @@
 			  <div class="col-md-1"><h4>Marks</h4></div>
 			  <div class="col-md-1"></div>
 			</div>
-			
 			<br /><br />
 		
 		
@@ -25,8 +24,6 @@
 
 				
 					echo form_open('form_help/give_marks');
-							
-					
 							foreach($students as $student ) {
 			   			 		$marks_id = $student->m_id ; 
 			   			 		$f_id = $student->m_f_id ;

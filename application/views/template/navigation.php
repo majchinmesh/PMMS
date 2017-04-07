@@ -30,13 +30,15 @@
         					  <li><a class="navbar-brand" href="<?php echo base_url()."admin/faculty_delete" ; ?>">Remove Faculty</a></li>   	
         					</ul>
       					</li>
-		</ul>				 			
-						 
+						 			
+						 </ul>
 					<?php
 					
 				}
 				
           ?>  
+          			</ul>
+          
           			<!--<ul class="nav navbar-nav navbar-right">-->
           				<li class="navbar-right"><a class="navbar-brand" href="<?php echo base_url()."logout" ; ?>">Logout</a></li>
         			
@@ -45,6 +47,7 @@
 			else { 
         		
         	?>		<!--<ul class="nav navbar-nav navbar-right">-->
+        				</ul>
         				<li class="navbar-right"><a class="navbar-brand" href="<?php echo base_url()."login" ; ?>">Login</a></li>
         			
         			<!--<a class="navbar-brand" href="<?php echo base_url()."register" ; ?>">Register</a>-->

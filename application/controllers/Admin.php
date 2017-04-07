@@ -57,7 +57,7 @@ class Admin extends CI_Controller {
 						$data['all_faculty_data'] = $all_f_data ;
 					}else{
 						
-						$data['all_faculty_data'] = "Couldnt get Faculty data!";
+						$data['error_message'] = "Couldnt get Faculty data!";
 					}
 					
 					$this->load->view('template/header');

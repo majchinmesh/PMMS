@@ -1,10 +1,31 @@
 Marks_id,Roll,"Student Name",Supervisor,M1,"Examiner 1",M2,"Examiner 2",M3,"Examiner 3",M4,MT
-1,14CSE1001,"Amit Kumar","Dr. Damodar Reddy Edla",0,"Dr. Purushothama B R",0,"Dr. Veena Thenkanidiyoor",0,"Dr. S. Mini",0
+1,14CSE1001,"Amit Kumar","Dr. Damodar Reddy Edla",35,"Dr. Purushothama B R",23,"Dr. Veena Thenkanidiyoor",0,"Dr. S. Mini",0
 2,14CSE1002,"Annette Catherine Paul","Dr. Purushothama B R",0,"Dr. Veena Thenkanidiyoor",0,"Dr. S. Mini",0,"Dr. Pravati Swain",0
 3,14CSE1003,"Bikumalla Prudhvi Raj","Dr. Veena Thenkanidiyoor",0,"Dr. S. Mini",0,"Dr. Pravati Swain",0,"Dr. Venkatanareshbabu Kuppili",0
 4,14CSE1004,"Colaco Larren Francis","Dr. S. Mini",0,"Dr. Pravati Swain",0,"Dr. Venkatanareshbabu Kuppili",0,"Dr. Modi Chirag Navinchandra",0
 5,14CSE1005,"Dhavalikar Gauri Pandurang","Dr. Pravati Swain",0,"Dr. Venkatanareshbabu Kuppili",0,"Dr. Modi Chirag Navinchandra",0,"Dr. Keshavamurthy B.N.",0
-6,14CSE1006,"Gorle Hemavathi","Dr. Venkatanareshbabu Kuppili",0,"Dr. Modi Chirag Navinchandra",0,"Dr. Keshavamurthy B.N.",0,"Mrs. Aruna Govada",0
-7,14CSE1007,"Himanshu Singh","Dr. Modi Chirag Navinchandra",0,"Dr. Keshavamurthy B.N.",0,"Mrs. Aruna Govada",0,"Dr. Damodar Reddy Edla",0
-8,14CSE1008,"Kamisetty Yamini Preethi","Dr. Keshavamurthy B.N.",0,"Mrs. Aruna Govada",0,"Dr. Damodar Reddy Edla",0,"Dr. Purushothama B R",0
-9,14CSE1009,"Kareti Vineeth Sai","Mrs. Aruna Govada",0,"Dr. Damodar Reddy Edla",0,"Dr. Purushothama B R",0,"Dr. Veena Thenkanidiyoor",0
+6,14CSE1007,"Himanshu Singh","Dr. Modi Chirag Navinchandra",0,"Dr. Keshavamurthy B.N.",0,"Mrs. Aruna Govada",0,"Dr. Damodar Reddy Edla",0
+7,14CSE1008,"Kamisetty Yamini Preethi","Dr. Keshavamurthy B.N.",0,"Mrs. Aruna Govada",0,"Dr. Damodar Reddy Edla",0,"Dr. Purushothama B R",40
+8,14CSE1009,"Kareti Vineeth Sai","Mrs. Aruna Govada",0,"Dr. Damodar Reddy Edla",26,"Dr. Purushothama B R",2,"Dr. Veena Thenkanidiyoor",0
+9,14CSE1010,"Kuldeep Singh","Dr. Keshavamurthy B.N.",0,"Dr. Purushothama B R",0,"Dr. Venkatanareshbabu Kuppili",0,"Dr. Pravati Swain",0
+10,14CSE1011,"Madhusudan Meena","Dr. Keshavamurthy B.N.",0,"Dr. Damodar Reddy Edla",0,"Dr. S. Mini",0,"Dr. Purushothama B R",0
+11,14CSE1012,"Mangalorekar Kunal Gautam","Dr. Purushothama B R",0,"Dr. S. Mini",0,"Dr. Damodar Reddy Edla",0,"Mrs. Aruna Govada",0
+12,14CSE1013,"Chinmesh Manjrekar","Dr. Damodar Reddy Edla",0,"Dr. Pravati Swain",0,"Dr. Purushothama B R",0,"Dr. S. Mini",0
+13,14CSE1014,"Md Fahim Ansari","Mrs. Aruna Govada",0,"Dr. Pravati Swain",0,"Dr. Veena Thenkanidiyoor",0,"Dr. Venkatanareshbabu Kuppili",0
+14,14CSE1015,"Nidhi Ranjan","Dr. Modi Chirag Navinchandra",0,"Dr. Damodar Reddy Edla",0,"Dr. Pravati Swain",0,"Mrs. Aruna Govada",0
+15,14CSE1016,"Nikhil Chaudhary","Dr. Damodar Reddy Edla",0,"Dr. Venkatanareshbabu Kuppili",0,"Dr. Keshavamurthy B.N.",0,"Dr. S. Mini",0
+16,14CSE1017,"Om Prakash Verma","Dr. S. Mini",0,"Dr. Veena Thenkanidiyoor",0,"Mrs. Aruna Govada",0,"Dr. Venkatanareshbabu Kuppili",0
+17,14CSE1018,"Palash Rajendra Soundarkar","Dr. Damodar Reddy Edla",0,"Dr. S. Mini",0,"Dr. Purushothama B R",0,"Dr. Pravati Swain",0
+18,14CSE1019,"Pranav Vinod Machingal","Dr. Modi Chirag Navinchandra",0,"Dr. S. Mini",0,"Dr. Venkatanareshbabu Kuppili",0,"Mrs. Aruna Govada",0
+19,14CSE1021,"Reetwik Das","Dr. Modi Chirag Navinchandra",0,"Dr. Pravati Swain",0,"Mrs. Aruna Govada",0,"Dr. S. Mini",0
+20,14CSE1022,"Raj Rohit","Dr. Purushothama B R",0,"Dr. Pravati Swain",0,"Dr. Modi Chirag Navinchandra",0,"Mrs. Aruna Govada",0
+21,14CSE1023,"Shahil Ahmed C.G","Dr. S. Mini",0,"Dr. Pravati Swain",0,"Dr. Damodar Reddy Edla",0,"Dr. Venkatanareshbabu Kuppili",0
+22,14CSE1024,"Sourab Mangrulkar","Dr. Veena Thenkanidiyoor",0,"Dr. Venkatanareshbabu Kuppili",0,"Dr. Damodar Reddy Edla",0,"Dr. Modi Chirag Navinchandra",0
+23,14CSE1025,"Suhani Shrivastava","Dr. Purushothama B R",0,"Dr. Modi Chirag Navinchandra",0,"Dr. S. Mini",0,"Dr. Pravati Swain",0
+24,14CSE1026,"Sunil Sri Datta Jammalamadaka","Dr. Pravati Swain",0,"Dr. Keshavamurthy B.N.",0,"Dr. Venkatanareshbabu Kuppili",0,"Mrs. Aruna Govada",0
+25,14CSE1027,"Tamba Soham Girish","Dr. Pravati Swain",0,"Dr. Damodar Reddy Edla",0,"Dr. Veena Thenkanidiyoor",0,"Mrs. Aruna Govada",0
+26,14CSE1028,"Tangella Manvitha","Mrs. Aruna Govada",0,"Dr. S. Mini",0,"Dr. Venkatanareshbabu Kuppili",0,"Dr. Keshavamurthy B.N.",0
+27,14CSE1029,"Vannati Sai Kumar","Dr. Pravati Swain",0,"Dr. Keshavamurthy B.N.",0,"Dr. Venkatanareshbabu Kuppili",0,"Dr. Modi Chirag Navinchandra",0
+28,14CSE1030,"Yallamelli Abhishek","Dr. S. Mini",0,"Dr. Venkatanareshbabu Kuppili",0,"Dr. Pravati Swain",0,"Dr. Damodar Reddy Edla",0
+29,14CSE1031,"Kevin Monteiro","Dr. Venkatanareshbabu Kuppili",0,"Dr. Damodar Reddy Edla",0,"Dr. Pravati Swain",0,"Mrs. Aruna Govada",0
+30,13CSE007,"Arjit Punia","Dr. Venkatanareshbabu Kuppili",0,"Dr. Damodar Reddy Edla",0,"Dr. Pravati Swain",0,"Dr. Modi Chirag Navinchandra",0

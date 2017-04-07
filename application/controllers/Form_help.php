@@ -21,6 +21,29 @@ class Form_help extends CI_Controller {
 		
 	}
 
+private function  logged_in(){
+		
+		$data = $this->session->userdata ; 
+				
+		if (isset($data['logged_in'])) {
+				
+			if( $data['logged_in']['admin'] == 1 ){
+					
+					return 1 ;
+			}{
+				return 0 ;
+				
+			}
+			
+		}
+		else{
+			
+			return -1 ;
+		}
+		
+	}
+
+
 	// Show login page
 	public function index() {
 		$this->load->view('index.html');
@@ -31,7 +54,13 @@ class Form_help extends CI_Controller {
 		if ($marks == "") {
 			
 			return false ;
-		}			
+		}	
+		
+		if( !ctype_digit($marks) ){
+			
+			return false ;
+		}
+				
 			
 		if($is_sup == 1 ){
 			
@@ -54,8 +83,15 @@ class Form_help extends CI_Controller {
 	
 	public function give_marks()
 	{
-		$all_marks = $this->input->post('marks');
+		if($this->logged_in() == -1  ){
+			
+			header("location: ../login");
+			return ;		
+		}
 		
+		return ;
+		
+		$all_marks = $this->input->post('marks');
 		
 		$data = $this->session->userdata ; 
 				
@@ -63,79 +99,90 @@ class Form_help extends CI_Controller {
 	
 		$result = $this->marks_database->get_students_to_grade($faculty_id);
 		
-		
+		$flag = 0 ;
+		$m_data = Array();
+
 		foreach($result as $student ) {
 		 		$marks_id = $student->m_id ; 
 		 		$f_id = $student->m_f_id ;
 				$s_id = $student->m_s_id ;
 				$is_sup = $student->m_is_sup ;
 				$marked = $student->m_marked ;
-				$marks = $student->m_marks ;
 				
-				$marks = "" ;
-				if (isset($all_marks[$marks_id])){
+				if ($marked != 1 ){
 					
-					$marks = $all_marks[$marks_id] ;
-				}
-				
-				$valid = $this->velidate($marks,$is_sup);
-				
-				if (!$valid and $marked != 1 ) {
+					$m_data[$marks_id] = Array(
 					
-						$data['error_message'] = "Marks not valid ...";
-						$this->load->view('template/header');
-						$this->load->view('template/navigation');
-						$this->load->view('home_page', $data);
-					
-						return ;
-				}
-				
-				if ( $marked != 1  ){
-				
-				
-					$data = array(
-					'm_id' => $marks_id ,
-					'm_f_id' => $f_id,
-					'm_s_id' => $s_id,
-					'm_marked' => 1 ,
-					'm_is_sup' => $is_sup,
-					'm_marks' => $marks
+						"m_is_sup"=>$is_sup ,
+						"m_s_id" => $s_id ,					
+						"m_f_id" =>  $f_id ,
+						"m_marked"=>1 ,
+						"m_marks" => 0 ,
+						"m_id" => $marks_id  	
 					);
-					
-					$result = $this->marks_database->marks_insert($data);
-					
-					if(!$result){
-						
-						$data['error_message'] = "Problem inserting the marks ...";
-						$this->load->view('template/header');
-						$this->load->view('template/navigation');
-						$this->load->view('home_page', $data);	
-					}
-					else{
-						
-						$data['display_message'] = "Inserted student ".$s_id." marks successfully ...";
-						$this->load->view('template/header');
-						$this->load->view('template/navigation');
-						$this->load->view('home_page', $data);	
-					}	
 				}
+		}
+		
+		$added_s_ids = Array();
+		$non_added_s_ids = Array();
+		
+		foreach( $all_marks as $g_m_id => $g_marks ) {
+			
+			
+			$is_sup = $m_data[$g_m_id]['m_is_sup'] ;
+			
+			if ( $this->velidate( $g_marks ,$is_sup)){
 				
+				$flag = 1 ;
+				
+				$data = $m_data[$g_m_id];
+				$data["m_marks"] = $g_marks ;
+				
+				$result = $this->marks_database->marks_insert($data);
+			
+				if(!$result){
+					
+					$non_added_s_ids[$data["m_s_id"]] = $data["m_id"] ;
+				}
 				else{
 					
-						$data['error_message'] = "Already marked ...";
-						$this->load->view('template/header');
-						$this->load->view('template/navigation');
-						$this->load->view('home_page', $data);
-					
-				}		
+					$added_s_ids[$data["m_s_id"]] = $data["m_id"] ;
+		
+				}
 				
 				
+			}
+			
+		}// 2nd for loop 
+		
+		
+		
+		if ($flag == 0 ){
+			$data['error_message'] = "No studet were given marks!";
+			$this->load->view('template/header');
+			$this->load->view('template/navigation');
+			$this->load->view('home_page', $data);	
+			
+		}else{
+				
+			$data['display_message'] = "Some studet were given marks!";
+			$this->load->view('template/header');
+			$this->load->view('template/navigation');
+			$this->load->view('home_page', $data);	
+			
+			
 		}
 		
 	}
 
 
 	public function new_faculty_insert() {
+			
+		if($this->logged_in() <1  ){
+			
+			header("location: ../login");
+			return ;		
+		}
 			
 		// Check validation for user input in SignUp form
 		$this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
@@ -182,6 +229,11 @@ class Form_help extends CI_Controller {
 
 	public function new_student_insert() {
 			
+		if($this->logged_in() <1  ){
+			
+			header("location: ../login");
+			return ;		
+		}
 			//$valid = validate_faculties();
 			$f_array = Array (
 				$this->input->post('Supervisor'),
@@ -190,8 +242,17 @@ class Form_help extends CI_Controller {
 				$this->input->post('Exeminar_3')
 			);
 			 
-			 //print_r($f_array);	
-			 //return ; 
+			/* 
+			print_r($f_array);	
+			
+			if ($this->array_has_dupes($f_array)){
+				
+				echo "has dups";
+			}
+			
+			return ; 
+			*/
+			
 			if( $this->array_has_dupes($f_array) ){
 				
 				$data["error_message"]= "No multiple faculties for same student." ;
@@ -199,6 +260,7 @@ class Form_help extends CI_Controller {
 				$this->load->view('template/navigation');
 				$this->load->view('admin_student_insert',$data);
 				
+				return ;
 			}
 			
 			//print_r( $this->input->post('supervisor') );
@@ -247,6 +309,8 @@ class Form_help extends CI_Controller {
 
 
 	public function user_login_process() {
+		
+		
 
 		$this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
 		$this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
@@ -316,6 +380,13 @@ class Form_help extends CI_Controller {
 	}
 
 	public function marks_reset(){
+		
+			if($this->logged_in() <1  ){
+			
+			header("location: ../login");
+			return ;		
+		}
+		
 			$data = $this->input->post('marks_id');
 				
 			if(sizeof($data)  > 0 ){
@@ -353,6 +424,13 @@ class Form_help extends CI_Controller {
 
 
 	public function student_delete(){
+		
+		if($this->logged_in() <1  ){
+			
+			header("location: ../login");
+			return ;		
+		}
+		
 			$data = $this->input->post('student_id');
 				
 			if(sizeof($data)  > 0 ){
@@ -395,6 +473,13 @@ class Form_help extends CI_Controller {
 
 
 	public function faculty_delete(){
+		
+		if($this->logged_in() <1  ){
+			
+			header("location: ../login");
+			return ;		
+		}
+		
 			$data = $this->input->post('faculty_id');
 		    if(sizeof($data)  > 0 ){
 				foreach ( $data as $id => $f_id ) {
@@ -434,6 +519,13 @@ class Form_help extends CI_Controller {
 	
 
 	public function faculty_delete_forcefully(){
+			
+			if($this->logged_in() <1  ){
+			
+			header("location: ../login");
+			return ;		
+		}
+		
 			$data = $this->input->post('faculty_id');
 		    if(sizeof($data)  > 0 ){
 				foreach ( $data as $id => $f_id ) {
