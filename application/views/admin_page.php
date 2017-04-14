@@ -86,7 +86,16 @@ if(isset($all_student_data) and isset($all_faculty_data) ){
 				$sup_marks += intval($mark) ;
 				
 				////
-				array_push($ROW_DATA,$all_faculty_data[$f_id],$mark);
+				
+				if ($marked == 1 ){
+					$cmarks = $mark ;
+				}
+				else {
+					$cmarks = "-" ;
+					
+				}
+				
+				array_push($ROW_DATA,$all_faculty_data[$f_id],$cmarks);
 				?>
 				
 							
@@ -107,7 +116,14 @@ if(isset($all_student_data) and isset($all_faculty_data) ){
 				$exm_marks += intval($mark) ;
 				
 				////
-				array_push($ROW_DATA,$all_faculty_data[$f_id],$mark);
+				if ($marked == 1 ){
+					$cmarks = $mark ;
+				}
+				else {
+					$cmarks = "-" ;
+					
+				}
+				array_push($ROW_DATA,$all_faculty_data[$f_id],$cmarks);
 				?>
 				
 				<div class="col-md-1"><?php echo'<h5>'.$all_faculty_data[$f_id].'</h5>'?></div>
