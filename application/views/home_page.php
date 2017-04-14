@@ -9,14 +9,15 @@
 		?>
 			<div class="row">
 			  <div class="col-md-1"><h4></h4></div>
-			  <div class="col-md-1"><h4>MID</h4></div>
-			  <div class="col-md-1"><h4>Roll</h4></div>
-			  <div class="col-md-3"><h4>Name</h4></div>
-			  <div class="col-md-2"><h4>Evaluated</h4></div>
-			  <div class="col-md-2"><h4>Marks Given</h4></div>
-			  <div class="col-md-1"><h4>Marks</h4></div>
+			  <div class="col-md-1"><h4><b>MID</b></h4></div>
+			  <div class="col-md-1"><h4><b>Roll</b></h4></div>
+			  <div class="col-md-3"><h4><b>Name</b></h4></div>
+			  <div class="col-md-2"><h4><b>Evaluated</b></h4></div>
+			  <div class="col-md-2"><h4><b>Marks Given</b></h4></div>
+			  <div class="col-md-1"><h4><b>Marks</b></h4></div>
 			  <div class="col-md-1"></div>
 			</div>
+			<hr  style="border-width: 5px;">
 			<br /><br />
 		
 		

@@ -1,5 +1,5 @@
 Marks_id,Roll,"Student Name",Supervisor,M1,"Examiner 1",M2,"Examiner 2",M3,"Examiner 3",M4,MT
-1,14CSE1001,"Amit Kumar","Dr. Damodar Reddy Edla",35,"Dr. Purushothama B R",23,"Dr. Veena Thenkanidiyoor",0,"Dr. S. Mini",0
+1,14CSE1001,"Amit Kumar","Dr. Damodar Reddy Edla",33,"Dr. Purushothama B R",23,"Dr. Veena Thenkanidiyoor",0,"Dr. S. Mini",0
 2,14CSE1002,"Annette Catherine Paul","Dr. Purushothama B R",0,"Dr. Veena Thenkanidiyoor",0,"Dr. S. Mini",0,"Dr. Pravati Swain",0
 3,14CSE1003,"Bikumalla Prudhvi Raj","Dr. Veena Thenkanidiyoor",0,"Dr. S. Mini",0,"Dr. Pravati Swain",0,"Dr. Venkatanareshbabu Kuppili",0
 4,14CSE1004,"Colaco Larren Francis","Dr. S. Mini",0,"Dr. Pravati Swain",0,"Dr. Venkatanareshbabu Kuppili",0,"Dr. Modi Chirag Navinchandra",0
@@ -28,4 +28,4 @@ Marks_id,Roll,"Student Name",Supervisor,M1,"Examiner 1",M2,"Examiner 2",M3,"Exam
 27,14CSE1029,"Vannati Sai Kumar","Dr. Pravati Swain",0,"Dr. Keshavamurthy B.N.",0,"Dr. Venkatanareshbabu Kuppili",0,"Dr. Modi Chirag Navinchandra",0
 28,14CSE1030,"Yallamelli Abhishek","Dr. S. Mini",0,"Dr. Venkatanareshbabu Kuppili",0,"Dr. Pravati Swain",0,"Dr. Damodar Reddy Edla",0
 29,14CSE1031,"Kevin Monteiro","Dr. Venkatanareshbabu Kuppili",0,"Dr. Damodar Reddy Edla",0,"Dr. Pravati Swain",0,"Mrs. Aruna Govada",0
-30,13CSE007,"Arjit Punia","Dr. Venkatanareshbabu Kuppili",0,"Dr. Damodar Reddy Edla",0,"Dr. Pravati Swain",0,"Dr. Modi Chirag Navinchandra",0
+30,13CSE007,"Arjit Punia","Dr. Venkatanareshbabu Kuppili",0,"Dr. Damodar Reddy Edla",30,"Dr. Pravati Swain",0,"Dr. Modi Chirag Navinchandra",0

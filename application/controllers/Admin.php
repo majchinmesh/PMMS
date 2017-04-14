@@ -105,7 +105,7 @@ class Admin extends CI_Controller {
 				$data['faculty_list'] = $all_faculty ;
 				$this->load->view('template/header');
 				$this->load->view('template/navigation');
-				$this->load->view('admin_student_insert.php',$data);
+				$this->load->view('admin_student_insert.php',$data); ///////////////////////////////////////////////////////////////
 				
 		}else if ( $this->logged_in() == 0 ) {
 				

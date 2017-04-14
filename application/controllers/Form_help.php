@@ -89,7 +89,6 @@ private function  logged_in(){
 			return ;		
 		}
 		
-		return ;
 		
 		$all_marks = $this->input->post('marks');
 		
@@ -371,10 +370,10 @@ private function  logged_in(){
 				);
 
 				$data['session_ua'] = $this->session ;
-				print_r($this->session->userdata);
+				//print_r($this->session->userdata);
 				$this->load->view('template/header');
 				$this->load->view('template/navigation');
-				$this->load->view('login_page.php', $data); // admin_page initially 
+				$this->load->view('login_form.php', $data); // admin_page initially 
 			}
 		}
 	}

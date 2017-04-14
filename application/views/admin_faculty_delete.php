@@ -19,13 +19,14 @@
 			<div class="row">
 					  			<div class="col-md-2"></div>
 					  			
-					  			<div class="col-md-3"><h3>Fid</h3></div>
-					  			<div class="col-md-4"><h3>Name</h3></div>
-					  			<div class="col-md-1"><h3>Delete</h3></div>
+					  			<div class="col-md-3"><h3><b>Fid</b></h3></div>
+					  			<div class="col-md-4"><h3><b>Name</b></h3></div>
+					  			<div class="col-md-1"><h3><b>Delete</b></h3></div>
 					  			
 					 		 	<div class="col-md-2"></div>
 			
 			</div>
+			<hr  style="border-width: 5px;">
 			<br />
 			<br />
 

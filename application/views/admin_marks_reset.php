@@ -19,15 +19,16 @@
 			<div class="row">
 					  			<div class="col-md-2"></div>
 					  			
-					  			<div class="col-md-2"><h3>Mid</h3></div>
-					  			<div class="col-md-2"><h3>Student</h3></div>
-					  			<div class="col-md-2"><h3>Faculty</h3></div>
-					  			<div class="col-md-1"><h3>Marks</h3></div>
-					  			<div class="col-md-1"><h3>Reset</h3></div>
+					  			<div class="col-md-1"><h3><b>Mid</b></h3></div>
+					  			<div class="col-md-3"><h3><b>Student</b></h3></div>
+					  			<div class="col-md-3"><h3><b>Faculty</b></h3></div>
+					  			<div class="col-md-1"><h3><b>Marks</b></h3></div>
+					  			<div class="col-md-1"><h3><b>Reset</b></h3></div>
 					  			
-					 		 	<div class="col-md-2"></div>
+					 		 	<div class="col-md-1"></div>
 			
 			</div>
+			<hr  style="border-width: 5px;">
 			<br />
 			<br />
 
@@ -55,19 +56,19 @@
 		  		
 		  		
 		  			<div class="col-md-2"></div>
-		 		 	<div class="col-md-2"><h4>
+		 		 	<div class="col-md-1"><h4>
 			
 			<?php
 					echo $m_id ;
 			?>
 					</h4></div>
-					<div class="col-md-2"><h4>
+					<div class="col-md-3"><h4>
 			<?php
 			
 					echo $m_data['student'];
 			?>				
 					</h4></div>
-					<div class="col-md-2"><h4>
+					<div class="col-md-3"><h4>
 			<?php
 					echo $m_data['faculty'];
 			?>				
@@ -94,6 +95,8 @@
 				?>	
 					</h4>
 					</div>
+					
+				<div class="col-md-1"></div>	
 			</div><!-- Row end -->
 				<br />
 				<br />

@@ -32,19 +32,19 @@ if(isset($all_student_data) and isset($all_faculty_data) ){
 	
 	<div class="row">
 	  <div class="col-md-1"><h4></h4></div>
-	  <div class="col-md-1"><h4>Roll</h4></div>
-	  <div class="col-md-1"><h4>Student</h4></div>
-	  <div class="col-md-1"><h4>Supervisor</h4></div>
-	  <div class="col-md-1"><h4>Marks</h4></div>
-	  <div class="col-md-1"><h4>Examiner 1</h4></div>
-	  <div class="col-md-1"><h4>Marks</h4></div>
-	  <div class="col-md-1"><h4>Examiner 2</h4></div>
-	  <div class="col-md-1"><h4>Marks</h4></div>
-	  <div class="col-md-1"><h4>Examiner 3</h4></div>
-	  <div class="col-md-1"><h4>Marks</h4></div>
-	  <div class="col-md-1"><h4>Total</h4></div>
+	  <div class="col-md-1"><h4><b>Roll</b></h4></div>
+	  <div class="col-md-1"><h4><b>Student</b></h4></div>
+	  <div class="col-md-1"><h4><b>Supervisor</b></h4></div>
+	  <div class="col-md-1"><h4><b>Marks</b></h4></div>
+	  <div class="col-md-1"><h4><b>Examiner</b></h4></div>
+	  <div class="col-md-1"><h4><b>Marks</b></h4></div>
+	  <div class="col-md-1"><h4><b>Examiner</b></h4></div>
+	  <div class="col-md-1"><h4><b>Marks</b></h4></div>
+	  <div class="col-md-1"><h4><b>Examiner</b></h4></div>
+	  <div class="col-md-1"><h4><b>Marks</b></h4></div>
+	  <div class="col-md-1"><h4><b>Total</b></h4></div>
 	</div>
-	
+	<hr  style="border-width: 5px;">
 	<br />
 	<br />
 	

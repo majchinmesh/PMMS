@@ -19,14 +19,15 @@
 			<div class="row">
 					  			<div class="col-md-2"></div>
 					  			
-					  			<div class="col-md-2"><h3>Sid</h3></div>
-					  			<div class="col-md-2"><h3>Roll</h3></div>
-					  			<div class="col-md-3"><h3>Name</h3></div>
-					  			<div class="col-md-1"><h3>Delete</h3></div>
+					  			<div class="col-md-2"><h3><b>Sid</b></h3></div>
+					  			<div class="col-md-2"><h3><b>Roll</b></h3></div>
+					  			<div class="col-md-3"><h3><b>Name</b></h3></div>
+					  			<div class="col-md-1"><h3><b>Delete</b></h3></div>
 					  			
 					 		 	<div class="col-md-2"></div>
 			
 			</div>
+			<hr  style="border-width: 5px;">
 			<br />
 			<br />
 

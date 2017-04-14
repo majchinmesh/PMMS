@@ -16,7 +16,12 @@
 	}
 	
 	else{
+		?>
+		<div class="row">
+		  	<div class="col-md-1"></div>
+			<div class="col-md-5">
 		
+		<?php
 		echo form_open('form_help/new_student_insert');
 	
 			$from_input_data = Array(
@@ -32,8 +37,8 @@
 			?>
 				<!-- row start  -->
 				<div class="row">
-		  			<div class="col-md-4"></div>
-		 		 	<div class="col-md-4">
+		  			<div class="col-md-1"></div>
+		 		 	<div class="col-md-10">
 		 
 				<?php
 			
@@ -56,7 +61,7 @@
 				?>
 			 
 			 </div>
-			 <div class="col-md-4"></div>
+			 <div class="col-md-1"></div>
 			</div> <!-- row end -->
 			<br /><br />	
 			
@@ -64,12 +69,17 @@
 	
 		} // end of foreach loop 
 	
+		?>
+		</div><!-- end of 1 half --> 
+		<div class="col-md-5">
+		
+		<?php
 		//
 		$Students_faculties = Array(
-			'Supervisor' =>  0 ,
-			'Exeminar_1' => 1 ,
-			'Exeminar_2' => 2 ,
-			'Exeminar_3' => 3 
+			'Supervisor' =>  'Supervisor' ,
+			'Exeminar_1' => 'Exeminar 1' ,
+			'Exeminar_2' => 'Exeminar 2' ,
+			'Exeminar_3' => 'Exeminar 3' 
 		);
 		
 		foreach ($Students_faculties as $ddm_name => $ddm_id ){
@@ -77,30 +87,39 @@
 			?>
 			<!-- row  start -->
 			<div class="row">
-		  			<div class="col-md-4"></div>
-		 		 	<div class="col-md-4">
+		  			<div class="col-md-1"></div>
+		 		 	<div class="col-md-10">
 					<!--<h4><?php echo  $ddm_name ?></h4> -->
 			<?php
 			
-			echo form_label($ddm_name,$value , $attributes);
+			echo form_label($ddm_id,$value , $attributes);
 				echo"<br/>";
 			echo form_dropdown( $ddm_name , $faculty_list,'','style="width: 80%;height:40px;"');
 														 // SELECTED	
 			?>
 			
 			</div>
-			 <div class="col-md-4"></div>
+			 <div class="col-md-1"></div>
 			</div> <!-- row end -->
 			<br /><br />	
 			
 			<?php
 			
 			
-		}
+		} // end of 2nd for loop 
 		
+		?>
+	
+		</div><!-- end of 2 half -->	
+		<div class="col-md-1"></div>
+		
+		
+		<?php
+			
 		echo form_submit('student_insert', 'Add student');
 		echo form_close(); 
 
 	}	
-
+	
+	
 ?>
