@@ -88,8 +88,6 @@ private function  logged_in(){
 			header("location: ../login");
 			return ;		
 		}
-		
-		
 		$all_marks = $this->input->post('marks');
 		
 		$data = $this->session->userdata ; 
@@ -97,10 +95,8 @@ private function  logged_in(){
 		$faculty_id =  $data['logged_in']['user_id'];
 	
 		$result = $this->marks_database->get_students_to_grade($faculty_id);
-		
 		$flag = 0 ;
 		$m_data = Array();
-
 		foreach($result as $student ) {
 		 		$marks_id = $student->m_id ; 
 		 		$f_id = $student->m_f_id ;

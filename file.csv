@@ -1,7 +1,7 @@
 Marks_id,Roll,"Student Name",Supervisor,M1,"Examiner 1",M2,"Examiner 2",M3,"Examiner 3",M4,MT
 1,14CSE1001,"Amit Kumar","Dr. Damodar Reddy Edla",33,"Dr. Purushothama B R",23,"Dr. Veena Thenkanidiyoor",-,"Dr. S. Mini",-
 2,14CSE1002,"Annette Catherine Paul","Dr. Purushothama B R",-,"Dr. Veena Thenkanidiyoor",-,"Dr. S. Mini",-,"Dr. Pravati Swain",-
-3,14CSE1003,"Bikumalla Prudhvi Raj","Dr. Veena Thenkanidiyoor",-,"Dr. S. Mini",-,"Dr. Pravati Swain",-,"Dr. Venkatanareshbabu Kuppili",-
+3,14CSE1003,"Bikumalla Prudhvi Raj","Dr. Veena Thenkanidiyoor",30,"Dr. S. Mini",-,"Dr. Pravati Swain",-,"Dr. Venkatanareshbabu Kuppili",-
 4,14CSE1004,"Colaco Larren Francis","Dr. S. Mini",-,"Dr. Pravati Swain",-,"Dr. Venkatanareshbabu Kuppili",-,"Dr. Modi Chirag Navinchandra",-
 5,14CSE1005,"Dhavalikar Gauri Pandurang","Dr. Pravati Swain",-,"Dr. Venkatanareshbabu Kuppili",-,"Dr. Modi Chirag Navinchandra",-,"Dr. Keshavamurthy B.N.",-
 6,14CSE1007,"Himanshu Singh","Dr. Modi Chirag Navinchandra",-,"Dr. Keshavamurthy B.N.",-,"Mrs. Aruna Govada",-,"Dr. Damodar Reddy Edla",-
