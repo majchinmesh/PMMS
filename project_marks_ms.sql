@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 14, 2017 at 02:44 PM
+-- Generation Time: May 04, 2017 at 05:31 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.5.37
 
@@ -78,7 +78,7 @@ INSERT INTO `marks` (`m_id`, `m_f_id`, `m_s_id`, `m_marked`, `m_is_sup`, `m_mark
 (37, 3, 11, 0, 0, 0),
 (38, 5, 11, 0, 0, 0),
 (39, 6, 11, 0, 0, 0),
-(40, 3, 12, 0, 1, 0),
+(40, 3, 12, 1, 1, 30),
 (41, 5, 12, 0, 0, 0),
 (42, 6, 12, 0, 0, 0),
 (43, 7, 12, 0, 0, 0),
@@ -283,17 +283,17 @@ ALTER TABLE `students`
 -- AUTO_INCREMENT for table `faculty`
 --
 ALTER TABLE `faculty`
-  MODIFY `f_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `f_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `marks`
 --
 ALTER TABLE `marks`
-  MODIFY `m_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=252;
+  MODIFY `m_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=248;
 --
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `s_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `s_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 --
 -- Constraints for dumped tables
 --
